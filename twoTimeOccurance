@@ -1,0 +1,45 @@
+
+/**
+ * Write a description of Part3 here.
+ * 
+ * @author (panchang bhardwaj) 
+ * @version (a version number or a date)
+ */
+import java.util.Scanner;
+public class Part3 {
+    
+        public boolean twoOccurrences(String stringa,String stringb)
+        {
+           int first = -1;
+           int second = -1;
+           int lengthOfa = -1;
+           first = stringb.indexOf(stringa);
+           lengthOfa = stringa.length();
+           second = stringb.indexOf(stringa,first + lengthOfa);
+           if((first != -1) &&  (second != -1)){
+               return true;
+           }
+           return false;
+        }
+        public void testing()
+        {
+         String stringa;
+         String stringb;
+         boolean resp;
+         int r = 1;   
+         Scanner in = new Scanner(System.in);
+         do
+         { System.out.println("ENTER THE STRING ");
+           stringb = in.nextLine();
+           System.out.println("ENTER THE STRING TO KNOW WEATHER IT OCCUR IN ABOVE ENTERED STRING OR NOT ");
+           stringa = in.nextLine();
+           resp = twoOccurrences(stringa, stringb);
+           System.out.println("THE ANS IS = "+ resp);
+           
+         System.out.println("enter 1 to continue press any other key to exit");
+         r = in.nextInt();
+         in.nextLine();
+         }while(r == 1);
+            
+        }
+}
