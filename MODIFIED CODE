@@ -1,0 +1,71 @@
+
+/**
+ * Write a description of Part2 here.
+ * 
+ * @author (PANCHANG BHARDWAJ) 
+ * @version (5.5.20
+ * )
+ */
+import java.util.Scanner;
+public class Part2 {
+    public String findSimpleGene(String dna, String startCodon, String stopCodon){
+        String result = "";
+        int start = -1;
+        int end = -1;
+        int lengths = 0;
+        start = dna.indexOf(startCodon);
+        if(start == -1){
+            System.out.printf("No %s OCCUR IN DNA", startCodon);
+            return result;
+           }
+        end = dna.indexOf(stopCodon,start+3);
+        if(end == -1)
+        {
+         System.out.printf("NO %s OCCUR IN DNA",stopCodon);
+         return result;   
+        }
+        result = dna.substring(start,end+3);
+        lengths = result.length();
+        if((lengths % 3) == 0)
+        {
+            System.out.println("THE GENE OBTAINED IS = ");
+            return result;
+        }
+        else
+        {
+            System.out.println("NOT MULTIPLE OF 3");
+        }
+        result = "";
+        return result;
+    }
+    public void show(String dna,String start,String end)
+    {
+        System.out.println("The entered dna string is = " + dna);
+        System.out.println("The entered start codon is = " + start);
+        System.out.println("The entered end codon is = " + end);
+    }
+    public void testSimpleGene()
+    {
+        String dna;
+        String ans;
+        Scanner in = new Scanner(System.in);
+        String start;
+        String end;
+        int response = 1;
+        do{
+            System.out.println("Enter the Dna String To get Gene : ");
+            dna = in.nextLine();
+            System.out.println("Enter the Start codon and End codon Respectively : ");
+            start = in.nextLine();
+            end = in.nextLine();
+            show(dna,start,end);
+            ans = findSimpleGene(dna,start,end);
+            System.out.println(ans);
+            System.out.println("PRESS 1 CONTINUE OR ANY OTHER KEY TO EXIT: ");
+            response = in.nextInt();
+        }while(response == 1);    
+        
+    }    
+
+}
+
