@@ -1,0 +1,71 @@
+
+/**
+ * Write a description of Part1 here.
+ * 
+ * @author (PANCHANG BHARDWAJ) 
+ * @version (5.5.20)
+ */
+public class Part1 {
+    public String findSimpleGene(String dna){
+        String result = "";
+        int start = -1;
+        int end = -1;
+        int lengths = 0;
+        start = dna.indexOf("ATG");
+        if(start == -1){
+            System.out.println("No ATG OCCUR IN DNA");
+            return result;
+           }
+        end = dna.indexOf("TAA",start+3);
+        if(end == -1)
+        {
+         System.out.println("NO TAA OCCUR IN DNA");
+         return result;   
+        }
+        result = dna.substring(start,end+3);
+        lengths = result.length();
+        if((lengths % 3) == 0)
+        {
+            System.out.println("THE GENE OBTAINED IS = ");
+            return result;
+        }
+        else
+        {
+            System.out.println("NOT MULTIPLE OF 3");
+        }
+        result = "";
+        return result;
+    }
+    public void testSimpleGene()
+    {
+        String dna1,dna2,dna3,dna4,dna5,dna6;
+        dna1 = "GGCCTTHHJJATGYUIOPTAALL";
+        System.out.println(dna1);
+        System.out.println(findSimpleGene(dna1));
+        System.out.println("\n");
+         dna2 = "ATGTAA";
+        System.out.println(dna2);
+        System.out.println(findSimpleGene(dna2));
+        System.out.println("\n");
+         dna3 = "YAUSJHDBHATAA";
+        System.out.println(dna3);
+        System.out.println(findSimpleGene(dna3));
+        System.out.println("\n");
+         dna4 = "GGCCTTHHJJAGYUIOPAALL";
+        System.out.println(dna4);
+        System.out.println(findSimpleGene(dna4));
+        System.out.println("\n");
+         dna5 = "GGCCATGTHHJJATGYTAAUIOPAALL";
+        System.out.println(dna5);
+        System.out.println(findSimpleGene(dna5));
+        System.out.println("\n");
+         dna6 = "GGCCTTHHJJATGYUIOPTAALL";
+        System.out.println(dna6);
+        System.out.println(findSimpleGene(dna6));
+        System.out.println("\n");
+    
+    }    
+
+}
+
+
